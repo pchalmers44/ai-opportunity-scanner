@@ -2,6 +2,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+## Environment Variables
+
+This app calls OpenAI from a server route (`src/app/api/scan/route.ts`), so the API key must be set server-side.
+
+1. Create a local env file:
+   - Copy `.env.example` to `.env.local`
+2. Set:
+   - `OPENAI_API_KEY=...`
+
+Do not commit `.env.local` (env files are gitignored).
+
 First, run the development server:
 
 ```bash
