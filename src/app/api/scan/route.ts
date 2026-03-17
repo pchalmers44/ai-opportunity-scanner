@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import type { ScanResponse, Suggestion } from "../../../lib/scanTypes";
 
+export const runtime = "nodejs";
+
 type ScanRequestBody = {
   prompt?: unknown;
 };
@@ -112,7 +114,7 @@ export async function POST(request: Request) {
     const response: ScanResponse = {
       result: [],
       error:
-        "Server misconfigured: missing OPENAI_API_KEY. Add it to `.env.local` and restart the dev server.",
+        "Server misconfigured: missing OPENAI_API_KEY. Locally: add it to `.env.local` and restart `npm run dev`. On Vercel: add `OPENAI_API_KEY` under Project Settings → Environment Variables (for the correct environment) and redeploy.",
       requestId,
     };
     return NextResponse.json(response, { status: 500 });
